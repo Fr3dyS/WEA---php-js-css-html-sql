@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>css demo</title>
+    <style>
+        p {
+            color: blue;
+            width: 200px;
+            font-size: 14px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+
+    <p class="auto">Just roll the mouse over me.</p>
+
+    <p class="moto">Or me to see a color change.</p>
+    <button>refresh</button>
+
+    <script>
+        var randomColor = '#' + ('000000' + Math.floor(Math.random() * 16777215).toString(16)).slice(-6);
+        var random = '#' + ('000000' + Math.floor(Math.random() * 16777215).toString(16)).slice(-6);
+        $(".auto").on("mouseover", function () {
+            $(this).css("color", randomColor);
+        });
+        $(".moto").on("mouseover", function () {
+            $(this).css("color", random);
+        });
+        $(document).ready(function () {
+            $("button").click(function () {
+                location.reload(true);
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

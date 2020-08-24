@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="classes.js"></script>
+    <style>
+        #aa {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="aa" onclick="zvetsi()"></div>
+    <script type="text/javascript">
+        var divicek = new MujKrasnyDiv(document.getElementById("aa"));
+
+        function zvetsi() {
+            divicek.zvetsiDiv(10);
+        }
+        console.log(divicek);
+        /*  divicek.zvetsiDiv(-50);
+          console.log(divicek);*/
+    </script>
+</body>
+
+</html>

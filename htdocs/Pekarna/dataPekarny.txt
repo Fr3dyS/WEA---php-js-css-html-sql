@@ -1,0 +1,3 @@
+1;Rohlik;Zakladni pecivo delane z mouky;12Kc;./rohlik.jpg
+3;Houska;Pokrocile pecivo delane z mouky;24Kc;./houska.jpg
+4;Loupak;Expert sladke pecivo delane z mouky a cukru;128Kc;./loupak.png

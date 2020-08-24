@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Timery, Hra</title>
+    <style type="text/css">
+        /*------------------------------------------------stylování je odtud---------------------------------------------------*/
+        
+        body {
+            background-color: gray;
+            background-attachment: fixed;
+            background-image: linear-gradient(darkorange, purple);
+        }
+        
+        .name {
+            text-align: center;
+            margin: auto;
+            height: 100px;
+            width: 200px;
+            background-color: black;
+            border: solid navy 2px;
+            border-radius: 10px;
+        }
+        
+        .num {
+            text-align: center;
+            margin: auto;
+            height: 150px;
+            width: 300px;
+            background-image: linear-gradient(midnightblue, black);
+            border: solid midnightblue 2px;
+            border-radius: 10px;
+        }
+        
+        .text {
+            color: midnightblue;
+            text-align: center;
+            margin: auto;
+            font: 100px monaco;
+        }
+        
+        .textName {
+            color: midnightblue;
+            text-align: center;
+            margin: auto;
+            font: 100px monaco;
+        }
+        
+        #text0 {
+            font: 100px monaco;
+            color: rgb(197, 109, 21);
+        }
+        
+        .btn {
+            margin-left: 20%;
+            height: 75px;
+            width: 300px;
+            font: 20px NFS Font;
+            color: rgb(197, 109, 21);
+            background-color: black;
+            border: solid midnightblue 3px;
+            border-radius: 15px;
+        }
+        
+        .buts {
+            height: 280px;
+            width: 500px;
+            margin: auto;
+        }
+        
+        .pol {
+            width: 200px;
+            height: 200px;
+            border: solid black 5px;
+            float: left;
+            margin-left: 5px;
+        }
+        /*--------------------------------------------------------sem-----------------------------------------------------------*/
+    </style>
+
+</head>
+
+<body>
+    <h1 class="textName">TIMER</h1>
+    <br>
+    <div class="num">
+        <h2 id="text0">0</h2>
+    </div>
+    <br>
+
+
+    <div class="pole">
+        <div class="pol" id="p1">
+            <h3 class="text" id="text1">0</h3>
+        </div>
+
+        <div class="pol" id="p2">
+            <h3 class="text" id="text2">0</h3>
+        </div>
+
+        <div class="pol" id="p3">
+            <h3 class="text" id="text3">0</h3>
+        </div>
+
+        <div class="pol" id="p4">
+            <h3 class="text" id="text4">0</h3>
+        </div>
+
+        <div class="pol" id="p5">
+            <h3 class="text" id="text5">0</h3>
+        </div>
+    </div>
+
+
+    <div class="buts">
+        <button class="btn" onclick="startGame()">START</button><br><br>
+        <button class="btn" onclick="stopGame()">STOP</button>
+    </div>
+
+
+    <script>
+        //funkce pro timer
+        var cislo1 = 0;
+        var h2 = document.getElementById("text0");
+        var prictiCislo = prictiCislo;
+        var int = setInterval(prictiCislo, 1000);
+
+        function spustTimer() {
+            int = setInterval(prictiCislo, 1000);
+
+            function prictiCislo() {
+                h2.innerHTML = ++cislo1;
+            }
+        }
+
+        function zastavTimer() {
+            clearInterval(int);
+
+        }
+
+        function resetTimer() {
+            cislo1 = 0;
+            h2.innerHTML = 0;
+        }
+
+        /*HRA - vygeneruje se random číslo 5-10, políčka se musí odčítat (cislo--), zastavit se na 3,pokud se netrefím
+        prohrál jsem, pokud trefím všechny čísla na 3 vyhrávám.*/
+
+        //FUNKCE PRO HRU
+        var limit = 3;
+
+        var cislo2 = 8;
+        var celaCisla = 0;
+        var h3 = document.getElementById("text1");
+        var h4 = document.getElementById("text2");
+        var h5 = document.getElementById("text3");
+        var h6 = document.getElementById("text4");
+        var h7 = document.getElementById("text5");
+
+
+        var int2 = setInterval(odectiCislo, 1000);
+
+        var odectiCislo = odectiCislo;
+
+
+
+        function startGame() {
+            int2 = setInterval(odectiCislo, 1000);
+
+            function odectiCislo() {
+                if (cislo2 <= limit) {
+                    stop();
+                }
+                h3.innerHTML = --cislo2;
+                h4.innerHTML = --cislo2;
+                h5.innerHTML = --cislo2;
+                h6.innerHTML = --cislo2;
+                h7.innerHTML = --cislo2;
+                console.log("Dělej");
+            }
+
+            function stop() {
+                window.alert("Pozdě");
+                clearInterval(int2);
+                h3.innerHTML = 0;
+                h4.innerHTML = 0;
+                h5.innerHTML = 0;
+                h6.innerHTML = 0;
+                h7.innerHTML = 0;
+                document.getElementById('text1').style.color = "white";
+                document.getElementById('text2').style.color = "white";
+                document.getElementById('text3').style.color = "white";
+                document.getElementById('text4').style.color = "white";
+                document.getElementById('text5').style.color = "white";
+
+                zastavTimer();
+            }
+            spustTimer();
+        }
+
+
+
+        function stopGame() {
+            if (celaCisla == limit) {
+                window.alert("Trefa");
+                clearInterval(int2);
+                document.getElementById('text1').style.color = "yellowgreen";
+
+            }
+            if (cislo2 > limit) {
+                window.alert("Moc brzo");
+                clearInterval(int2);
+                h3.innerHTML = 0;
+                document.getElementById('text1').style.color = "white";
+            }
+            zastavTimer();
+        }
+    </script>
+</body>
+<!--©HERMELEAN-->
+
+</html>

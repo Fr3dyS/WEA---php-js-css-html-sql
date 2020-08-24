@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pepa pepe</title>
+    <style type="text/css">
+        canvas {
+            border: 2px solid black;
+        }
+        
+        video {
+            width: 270px;
+            height: 270px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas width="200px" height="200px" id="platno">
+    </canvas>
+    <video autoplay="true" id="videoElement">
+    </video>
+
+    <script>
+        var video = document.querySelector("#videoElement");
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({
+                    video: true
+                })
+                .then(function(stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function(err0r) {
+                    console.log("Something went wrong!");
+                });
+        }
+    </script>
+    <script type="text/javascript">
+        //Vary
+        var platno = document.getElementById("platno");
+        var c = platno.getContext("2d");
+        var r = 75;
+
+        function clockBackground() {
+            //Pozadí
+            var grd = c.createRadialGradient(100, 100, 50, 100, 100, 150);
+            grd.addColorStop(0, "yellow");
+            grd.addColorStop(0.1, "purple");
+            grd.addColorStop(1, "black");
+            c.fillStyle = grd;
+            c.fillRect(0, 0, 200, 200);
+            //Vnitřek
+            c.beginPath();
+            c.strokeStyle = "lime";
+            c.arc(100, 100, r, 0, 2 Math.PI); //první parametr je x,y neboli střed kružnice
+
+            for (var i = 0; i < 12; i++) {
+                var uhel = 2 Math.PI * / 12 i;
+                var x = rMath.cos(uhel);
+                var y = rMath.sin(uhel);
+
+                var x2 = (r - 5) Math.cos(uhel);
+                var y2 = (r - 5) Math.sin(uhel);
+                c.moveTo(x2 + 100, y2 + 100);
+                c.lineTo(x + 100, y + 100);
+            }
+            c.stroke(); //vykreslení
+            c.closePath();
+        }
+        setInterval(rucicky, 100);
+
+        function rucicky() {
+            clockBackground();
+            var d = new Date();
+            var secs = d.getSeconds();
+            c.beginPath();
+            c.lineWidth = 4;
+            c.moveTo(100, 100);
+
+            var uhel = Math.PI2 / 60 secs - Math.PI / 2;
+            var x = rMath.cos(uhel);
+            var y = r * Math.sin(uhel);
+
+            c.lineTo(x + 100, y + 100);
+            c.stroke();
+            c.closePath();
+        }
+    </script>
+</body>
+
+</html>

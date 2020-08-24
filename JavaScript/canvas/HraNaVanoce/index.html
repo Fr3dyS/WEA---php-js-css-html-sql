@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="thumb0" class="thumbs" onclick="fun1('rad1')" style="height:250px; width:100%; background-color:yellow;" ;></div>
+    <div id="rad1" style="height:250px; width:100%;background-color:red;" onclick="fun2('thumb0')">hello world</div>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+    <script>
+        function fun1(i) {
+            document.getElementById(i).style.visibility = 'hidden';
+        }
+
+        function fun2(i) {
+            document.getElementById(i).style.visibility = 'hidden';
+        }
+    </script>
+</body>
+
+</html>

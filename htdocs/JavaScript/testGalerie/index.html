@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<style type="text/css">
+
+</style>
+
+<head>
+    <title> Galerie </title>
+    <script src="Model.js"></script>
+
+</head>
+
+<body>
+    <!--------pracovat s tridou, galerii,   ---------->
+    <header> Galerie </header>
+    URL: <input type="type" id="url" style="width: 197px;"><br> Text: <input type="text" id="text" style="width: 200px; height: 100px;"><br>
+    <input type="submit" value="Přidat" onclick="Pridej(document.getElementById('url').value,document.getElementById('text').value)" /><br>
+    <div id="picture" width="250" height="250">
+
+    </div>
+
+    <script type="text/javascript">
+        var pole = [];
+
+        function pridat(url, text) {
+            pole.push(new Model(url, text));
+            document.getElementById("obrazky").innerHTML += "<div id=" + pole.length + " onclick='zobraz(" + pole.length + ")'><img width='100' height='100' src='" + pole[(pole.length - 1)].getURL() + "'" + "/></div>";
+        }
+
+        function zobraz(cislo) {
+            document.getElementById("obrazek").innerHTML = "<div id='" + cislo + "'><img width='500' height='500' src='" + pole[(cislo - 1)].getURL() + "'/>" + pole[(cislo - 1)].getTexty() + "'</div>";
+        }
+    </script>
+
+</body>
+
+</html>

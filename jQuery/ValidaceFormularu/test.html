@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="jmeno" id='jmeno'>
+	<input type="text" name="prijmeni" id='prijmeni'>
+	<select id="select">	
+	</select>
+	<button onclick = "odeslidata()">ODESLI</button>
+
+	<script>
+			let narocnost;
+
+			$.get("http://oddtgames.cz/getNarocnosti.php",function(data){
+					console.log(JSON.parse(data));
+					var datickamoje = JSON.parse(data);
+					
+						for ( i = 0; i < datickamoje.length; i++) {
+							$('#select').append("<option value='"+datickamoje[i].id+`' onclick="narocnost(${i+1})">`+datickamoje[i].nazev+"</option>");
+							
+						}
+					
+
+			})	
+			
+		function odeslidata(){
+		$.post("http://oddtgames.cz/zapisSe.php", {
+			jmeno: $("#jmeno").val(),
+			prijmeni:$("#prijmeni").val(),
+			narocnost: $("#select").val()
+		}, function(data){
+			console.log(data);
+
+		})
+		}
+				
+			
+	</script>
+</body>
+
+</html>

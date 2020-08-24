@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+
+<head>
+    <title> Hodiny </title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="200px" height="200px" id="platno"></canvas>
+    <script type="text/javascript">
+        var platno = document.getElementById("platno");
+        var c = platno.getContext("2d");
+        var r = 75;
+
+        var grd = c.createRadialGradient(100, 100, 50, 100, 100, 150);
+        grd.addColorStop(0, "white");
+        grd.addColorStop(0.2, "yellow");
+        grd.addColorStop(1, "green");
+        c.fillStyle = grd;
+        c.fillRect(0, 0, 200, 200);
+
+        c.beginPath();
+
+        c.strokeStyle = "black";
+        c.arc(100, 100, r, 0, 2 * Math.PI);
+
+        for (var i = 0; i < 12; i++) {
+            var uhel = 2 Math.PI / 12 * i;
+            var x = r * Math.cos(uhel);
+            var y = r * Math.sin(uhel);
+
+            var x2 = (r - 10) Math.cos(uhel);
+            var y2 = (r - 10) Math.sin(uhel);
+            c.moveTo(x2 + 100, y2 + 100);
+            c.lineTo(x + 100, y + 100);
+        }
+
+        c.stroke();
+        c.closePath()
+
+        setInterval(rucicky, 100);
+
+        function rucicky() {
+            var d = new Date();
+            var secs = d.getSeconds();
+            c.beginPath();
+
+            c.moveTo(100, 100);
+
+            var uhel = Math.PI2 / 60 secs;
+            var x = rMath.cos(uhel);
+            var y = rMath.sin(uhel);
+
+            c.lineTo(x + 100, y + 100);
+            c.stroke();
+            c.closePath();
+
+        }
+    </script>
+
+</body>
+
+</html>

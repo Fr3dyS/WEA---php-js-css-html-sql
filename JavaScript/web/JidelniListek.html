@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Jídelní lístek</title>
+    <meta charset="utf-8">
+    <script src="script.js"></script>
+    <style type="text/css">
+        .polozka {
+            background-color: yellow;
+            font-style: italic;
+            color: blue;
+            border: solid black 4px;
+            width: 450px;
+            height: 50px;
+            margin-top: 25px;
+            font-size: 40px;
+            text-align: center;
+            margin-left: 560px;
+        }
+        
+        #pocet {
+            width: 80px;
+        }
+        
+        a:link,
+        a:visited {
+            background-color: #f44336;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 400px;
+        }
+        
+        a:hover,
+        a:active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <input class="qwert" type="number" id="pocet">
+        <input class="qwert" type="text" id="vec">
+        <input id="cudlc" type="button" value="OK" onclick="stisk()"><br><br>
+    </div>
+    <div id=vypis>
+
+    </div>
+    <div id="maloVyplneno"></div>
+
+    <script type="text/javascript">
+        var objekt = [];
+        var tomasek = 0;
+
+        function stisk() {
+            if (document.getElementById("pocet").value > 0) {
+                var pocet = document.getElementById("pocet").value;
+                var vec = document.getElementById("vec").value;
+                objekt[objekt.length] = new Objekt(pocet, vec, tomasek);
+                tomasek++;
+                objekt[objekt.length - 1].vypis(objekt[objekt.length - 1].kolikatyDiv);
+                document.getElementById("maloVyplneno").innerHTML = "";
+            } else {
+                document.getElementById("maloVyplneno").innerHTML = "Málo si toho vyplnil!";
+            }
+        }
+
+        function odeber(i) {
+            objekt[i].odeber(i);
+        }
+    </script>
+    <p>
+        <a href="index.html">zpet na hlavni stranku</a>
+        <a href="timer.html">jdi na Timer</a>
+    </p>
+</body>
+
+</html>

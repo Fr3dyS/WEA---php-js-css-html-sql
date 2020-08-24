@@ -1,0 +1,4 @@
+Class = šablona pro objekty
+
+Objekt = jedinečný výskyt třídy
+

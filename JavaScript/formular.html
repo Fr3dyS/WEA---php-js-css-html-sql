@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="post" action="/mailform/" onsubmit="return validate()">
+        <input type="text" name="email[_value]" id="email" value="" />
+        <input type="hidden" name="email[_title]" value="E-mail" />
+        <input type="hidden" name="email[_required]" value="1" />
+        <input type="hidden" name="email[_regex]" value="/^(.+)@([^@]+)$/" />
+        <input type="submit" value="Odeslat" />
+    </form>
+    <script type="text/javascript">
+        function validate() {
+            var email = document.getElementById('email').value;
+            if (email == '') {
+                alert('Zadejte svůj e-mail');
+                return false;
+            }
+            var regex = new RegExp('(.+)@([^@]+)');
+            if (email.match(regex) == null) {
+                alert('Zadaný e-mail nemá správný tvar');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>

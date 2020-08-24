@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> AJAX </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .people {
+            border-style: solid;
+            margin: 10px;
+
+        }
+
+        .ships {
+            border-style: solid;
+            margin: 10px;
+
+        }
+
+        .planets {
+            border-style: solid;
+            margin: 10px;
+
+        }
+
+        .btn{
+            margin: auto; 
+           
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="postavy()" class="btn btn-danger">Postavy</button>
+    <button onclick="lode()" class="btn btn-danger">Lodě</button>
+    <button onclick="planety()" class="btn btn-danger">Planety</button>
+    <div class="brmbrm">
+        <div id="data"></div>
+
+    <script>
+
+        function postavy() {
+            $("#data").html("");
+            $.get("https://swapi.co/api/people/", function (data) {
+                console.log(data);
+
+                for (var i = 0; i < data.results.length; i++) {
+                    $("#data").append(`<div class="people" >
+             <h2><a href="https://www.google.com/search?q=${data.results[i].name}&oq=${data.results[i].name}&aqs=chrome..69i57j0l7.724j0j9&sourceid=chrome&ie=UTF-8">${data.results[i].name}</a></h2>
+            <p>Barva Pleti: ${data.results[i].skin_color}</p>
+            <p>Pohlavi: ${data.results[i].gender}</p>
+            <p>Barva Vlasu: ${data.results[i].hair_color}</p>
+            <p>Barva Oci: ${data.results[i].eye_color}</p>
+            </div> `).html;
+
+                }
+
+            });
+        }
+        function lode() {
+            $("#data").html("")
+            $.get("https://swapi.co/api/starships/", function (data) {
+                console.log(data);
+                for (var i = 0; i < data.results.length; i++) {
+
+                    $("#data").append(`<div class="ships" style="border=1px">
+                        <h2><a href="https://www.google.com/search?q=${data.results[i].name}&oq=${data.results[i].name}&aqs=chrome..69i57j0l7.724j0j9&sourceid=chrome&ie=UTF-8">${data.results[i].name}</a></h2>
+                        <p>Model: ${data.results[i].model}</p>
+                        <p>Manufacturer: ${data.results[i].manufacturer}</p>
+                        <p>Delka: ${data.results[i].length}</p>
+                        <p>starship_class: ${data.results[i].starship_class}</p>
+                    </div>`);
+
+                }
+            });
+        } //Konec fce
+        function planety() {
+            $("#data").html("")
+            $.get("https://swapi.co/api/planets/", function (data) {
+                console.log(data);
+                for (var i = 0; i < data.results.length; i++) {
+
+                    $("#data").append(`<div class="planets" style="border=1px">
+                        <h2><a href="https://www.google.com/search?q=${data.results[i].name}&oq=${data.results[i].name}&aqs=chrome..69i57j0l7.724j0j9&sourceid=chrome&ie=UTF-8">${data.results[i].name}</a></h2>
+                        <p>jmeno: ${data.results[i].name}</p>
+                        <p>rotation_period: ${data.results[i].rotation_period}</p>
+                        <p>orbital_period: ${data.results[i].orbital_period}</p>
+                        <p>diameter: ${data.results[i].diameter}</p>
+                    </div>`);
+
+                }
+            });
+        } //Konec fce
+    </script>
+
+</div>
+
+</body>
+
+</html>

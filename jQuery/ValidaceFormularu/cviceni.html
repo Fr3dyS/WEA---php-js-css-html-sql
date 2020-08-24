@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./validate.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .kava {
+            margin-left: 80px;
+        }
+
+        .alo {
+            margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myshowErrors"></div>
+    <form id="formular">
+        <div>
+            <label for="prezdivka">Přezdívka:</label>
+            <input type="text" name="prezdivka">
+        </div>
+        <div>
+            <label for="karta">Kreditni karta:</label>
+            <input type="text" name="karta">
+        </div>
+        <div>
+            <label for="profil">Facebook profil:</label>
+            <input type="text" name="profil">
+        </div>
+        <div>
+            <label for="ziju">Žiju sám:</label></br>
+            <div class="kava">ziju sám:<input type="checkbox" class="nic" name="sam" id="sam"></br>
+                s rodici:<input type="checkbox" name="rodici" class="nic" id="rodici"></br>
+                pod mostem:<input type="checkbox" name="most" class="nic" id="most"></br>
+                Žiju sám: <textarea name="" id="" cols="30" rows="1"></textarea>
+            </div>
+        </div>
+        <div>
+            <label for="kava">Jaká káva:</label></br>
+            <div class="kava">
+                Silna:<input type="radio" name="kava" id="silna"></br>
+                Normální:<input type="radio" name="kava" id="slaba"></br>
+                Nepiju kávu:<input type="" name="kava" id="nepiju"></br>
+            </div>
+        </div>
+        <div>
+            <label for="alkohol">Piju alkohol?</label>
+            <div class="alo">
+                Pivo:<input type="checkbox" name="alkohol" class="a" id=""></br>
+                Medovina:<input type="checkbox" name="alkohol" class="a" id=""></br>
+                Víno: <input type="checkbox" name="" class="a" id=""></br>
+                Rum: <input type="checkbox" name="" class="a" id=""></br>
+                Absint: <input type="checkbox" name="" class="a" id=""></br>
+                Campari: <input type="checkbox" name="" class="a" id=""></br>
+                Aperol: <input type="checkbox" name="" class="a" id=""></br>
+                Tullamore dew: <input type="checkbox" name="" class="a" id=""></br>
+                Jack Daniel’s: <input type="checkbox" name="" class="a" id=""></br>
+                Jagermeister: <input type="checkbox" name="" class="a" id=""></br>
+            </div>
+        </div>
+        <div>
+            <label for="video">URL videa:</label>
+            <input type="text" name="video">
+        </div>
+        <div>
+            <label for="cislo">Zadej číslo dělitelné číslem (3+9):</label>
+            <input type="text" name="cislo">
+        </div>
+        <div>
+            <label for="souhlasim">Souhlasím s podmínkami zpracování formuláře v rámci GDPR:</label>
+            <input type="text" name="souhlasim">
+        </div>
+        <div>
+            <input type="submit" value="Odeslat!">
+        </div>
+        <script>
+            jQuery.validator.setDefaults({
+                debug: true,
+                success: "valid"
+            });
+
+            $("#formular").validate({
+                debug: true,
+                rules: {
+                    prezdivka: {
+                        //minlength: 4,
+                        required: true
+                    },
+                    karta: {
+                        /*minlength: 16,
+                        maxlength: 16,*/
+                        required: true
+                    },
+                    profil: {
+                        required: true,
+                    },
+                    video: {
+                        required: true,
+                      //  URL: true
+                    }
+                },
+                messages: {
+                    prezdivka: {
+                        minlength: "Vaše .... ehm.. příliš krátké",
+                        required: "Vypln Přezdívku!"
+                    },
+                    karta: {
+                        minlength: "Zapsal si málo čísel karty",
+                        required: "Napiš číslo Vaší karty",
+                        maxlength: "Zadej číslo karty bez mezer!"
+                    },
+                    video: {
+                        required: "Zadej celou URL adresu.",
+                        URL: "tohle neni url adresa!"
+                    }
+                }
+            });
+            var validator = $("#myshowErrors").validate();
+            validator.showErrors({
+                messages: {
+                    prezdivka:{
+                        minlength: "Vaše .... ehm.. příliš krátké",
+                    }, 
+                    karta: {
+                        minlength: "malo cisel!"
+                        }
+                }
+            });
+        </script>
+    </form>
+</body>
+
+</html>

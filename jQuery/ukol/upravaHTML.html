@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <title>Document</title>
+  <style>
+    .jedna {
+      color: red;
+    }
+
+    .dva {
+      color: blue;
+    }
+
+    .tri {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="toggle">toggle Class</button>
+  <div>zmizeni headeru</div>
+  <header>
+    <h1>Uprava HTML</h1>
+    <a href="index.html">zpět na hlavní menu
+    </a>
+  </header>
+  <h3>Before after</h3>
+  <button class="before">before</button>
+  <button class="after">after</button>
+  <div class="aaa">TEXT</div>
+  <h3>css</h3>
+  <button id="css">css / zmena pozadi</button>
+
+
+  <h3>Val</h3>
+  <input type="text" name="name" id="">
+  <button id="val">Zadej jmeno</button>
+  <div>
+    <div class="jedna">trida 1</div>
+    <div class="dva">trida 2</div>
+    <button class="a">tlacitko addClass</button>
+    <button class="b">tlacitko removeClass</button>
+  </div>
+  <div>
+    <h4>Seznam / Append / Prepend</h4>
+    <button class="append">append</button>
+    <button class="prepend">prepend</button>
+    <div id="ee">
+      <li>List item 1</li>
+      <li>List item 2</li>
+      <li>List item 3</li>
+    </div>
+    <h3>Text</h3>
+    <h5>Změním se pak</h4>
+    <button id="div">změna div</button>
+    <h3>Remove</h3>
+    <button id="remove">remove tag p</button>
+    <p>haah</p>
+    <h3>Html</h3>
+      <button id="html">html</button>
+      <div class="opice">text</div>
+<script>
+      $(".append").click(function () {
+        console.log("pridano!");
+        $("#ee").append("<li>APEND</li>");
+      });
+      $(".prepend").click(function () {
+        console.log("pridano!");
+        $("#ee").prepend("<li>PREPEND</li>");
+      });
+    </script>
+
+  </div>
+  <script>
+    $(".before").click(function () {
+      $(".aaa").before("<p>BEFORE!</p>");
+    });
+    $(".after").click(function () {
+      $(".aaa").after("<p>AFTER!</p>");
+    });
+
+    $(".toggle").click(function () {
+      $("header").toggle();
+    });
+
+    $(".a").click(function () {
+      alert("trida pridana!");
+      $(".jedna").addClass("dva");
+    });
+    $(".b").click(function () {
+      alert("trida odebrana!");
+      $(".jedna").removeClass("dva");
+    });
+    $("#val").click(function () {
+      $("input:text").val("Tomáš Kadleček");
+    });
+    $("#css").click(function () {
+      $("body").css("background-color", "yellow");
+    });
+    $("#div").click(function () {
+      $("h5").text("Dobrý den");
+    });
+    $("#remove").click(function(){
+    $("p").remove();
+  });
+  $("#html").click(function(){
+    $(".opice").html("COVID-2");
+  });
+  </script>
+</body>
+
+</html>

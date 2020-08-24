@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        fieldset {
+            max-width: 100px;
+            display: inline-block;
+        }
+        
+        #cas {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset id="q">0</fieldset>
+    <fieldset id="w">0</fieldset>
+    <fieldset id="e">0</fieldset>
+    <fieldset id="r">0</fieldset>
+    <fieldset id="t">0</fieldset>
+    <input type="button" value="start" onclick="start()">
+    <input type="button" value="stop" onclick="konec()">
+    <div class="dse">čas:
+        <div id="cas"></div>
+    </div>
+
+    <script>
+        var prvni = document.getElementById("q");
+        var druhy = document.getElementById("w");
+        var treti = document.getElementById("e");
+        var ctyri = document.getElementById("r");
+        var pet = document.getElementById("t");
+        var random = Math.floor(Math.random() * 5) + 5;
+
+        var max = 10;
+
+        function stopkyStart() {
+
+        }
+
+        function start() {
+            int = setInterval(prictiCislo, 1000);
+
+
+            function prictiCislo() {
+
+                h3.innerHTML = ++cislo;
+            }
+        }
+
+        function konec() {
+
+            clearInterval(int);
+        }
+        var cislo = 0;
+        var h3 = document.getElementById("cas");
+
+        var prictiCislo = prictiCislo;
+        var int = setInterval(prictiCislo, 1000);
+
+        var int = clearInterval(prictiCislo, 1000);
+    </script>
+</body>
+
+</html>

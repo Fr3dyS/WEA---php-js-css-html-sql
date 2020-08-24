@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Jídelní lístek</title>
+    <meta charset="utf-8">
+    <script src="script.js"></script>
+    <style type="text/css">
+        .polozka {
+            background-color: rgb(128, 47, 0);
+            font-family: sans-serif;
+            color: lime;
+            border: solid black 4px;
+            width: 450px;
+            height: 100px;
+            margin-top: 5px;
+            margin-left: 40%;
+            font-size: 40px;
+            text-align: center;
+        }
+        
+        #pocet {
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div>
+        <input class="qwert" type="number" id="pocet">
+        <input class="qwert" type="text" id="vec">
+        <input id="cudlc" type="button" value="OK" onclick="stisk()"><br><br>
+    </div>
+    <div id=vypis>
+
+    </div>
+    <div id="error"></div>
+
+    <script type="text/javascript">
+        var objekt = [];
+        var pepa = 0;
+
+        function stisk() {
+            if (document.getElementById("pocet").value > 0) {
+                var pocet = document.getElementById("pocet").value;
+                var vec = document.getElementById("vec").value;
+                objekt[objekt.length] = new Objekt(pocet, vec, pepa);
+                pepa++;
+                objekt[objekt.length - 1].vypis(objekt[objekt.length - 1].kolikatyDiv);
+                document.getElementById("error").innerHTML = "";
+            } else {
+                document.getElementById("error").innerHTML = "Málo si toho vyplnil!";
+            }
+        }
+
+        function odeber(i) {
+            objekt[i].odeber(i);
+        }
+    </script>
+</body>
+
+</html>

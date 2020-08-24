@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Timery </title>
+</head>
+
+<body>
+
+    <h3 id="text">čas</h3>
+    <button onclick="zastavTimer()">Zastav</button>
+    <script>
+        function zastavTimer() {
+            clearInterval(int);
+        }
+
+        function prictiCislo() {
+            h3.innerHTML = ++cislo;
+        }
+
+        var cislo = 0;
+        var h3 = document.getElementById("text");
+
+
+        var int = setInterval(prictiCislo, 1);
+
+
+        /*
+ setInterval
+ setTimeout
+ clearInterval
+ clearTimeout
+	*/
+    </script>
+
+
+
+</body>
+
+</html>

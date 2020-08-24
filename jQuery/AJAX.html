@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="data"></div>
+
+    <script>
+        $.get("https://swapi.co/api/species/", function (   ) {
+            var colors =  data.results[i].skin_colors.split(',');
+            console.log(colors);
+            console.log(data);
+            var cols ="";
+            for (var q = 0; q < colors.length; q++) {
+                cols+= "<li style='color: '"+colors[q]+"'>"+colors[q]+"</li>";
+
+                $("#data").append(`<div class="specimen">
+                <h2>${data.results[i].name}</h2>
+                <ul>${cols}</ul> 
+            </div> `);
+
+            }
+        });
+        
+
+    </script>
+
+
+</body>
+
+</html>

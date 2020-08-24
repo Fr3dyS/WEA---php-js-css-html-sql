@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./validate.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="registrace">
+        <div>
+            <label for="jmeno">Jméno:</label>
+            <input type="text" name="jmeno">
+        </div>
+        <div>
+            <label for="heslo">Heslo:</label>
+            <input type="password" name="heslo">
+        </div>
+        <div>
+            <label for="heslo2">Potvrzení hesla:</label>
+            <input type="password" name="heslo2">
+        </div>
+        <div>
+            <input type="submit" value="odeaslat form!">
+        </div>
+    </form>
+    <script>
+        $("#registrace").validate({
+            debug: true,
+            
+            rules: {
+                jmeno: {
+                    minlength: 4,
+                    required: true                     
+                }, 
+                heslo: {
+                    minlength: 6,
+                    required: true
+                },
+                heslo2: {
+                    equalTo: "input[name=heslo]"
+                }
+            },
+            messages: {
+                jmeno: {
+                    minlength: "Vaše .... ehm.. příliš krátké",
+                    required:"Vypln jmeno!"
+                }
+
+            }
+        });
+
+    </script>
+</body>
+
+</html>

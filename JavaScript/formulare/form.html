@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formular</title>
+</head>
+
+<body>
+    <h1 onclick="console.log('UWU');">Formulář</h1>
+    <form onsubmit="return isValid()">
+        Jméno: <input type="text" name="jmeno" id="jmeno"><br> Heslo: <input type="password" name="pass" id="pass"><br>
+        <input type="submit" value="tlacitko" onclick="odesli()">
+    </form>
+    <div id="output"></div>
+    <script type="text/javascript">
+        function isValid() {
+            var jm = document.getElementById("jmeno").value;
+            var pass = document.getElementById("pass").value;
+
+            var chyby = "";
+            if (jm == "")
+                chyby += "Jméno nemsí být prázdné<br>";
+
+            if (jm.length < 3)
+                chyby += "Jmeno musí být delší než 3 znaky <br>";
+
+            if (jm.indexOf("#") > -1)
+                chyby += "Jméno nesmí obsahovat # <br>";
+
+            if (pass.length < 8)
+                chyby += "Heslo musí mít alespoň 8 znaků <br>";
+
+            if (chyby == "")
+                return true;
+
+            document.getElementById("output").innerHTML = chyby;
+
+            return false;
+        }
+
+        function odesli() {
+            var jm = document.getElementById("jmeno").value;
+            var pass = document.getElementById("pass").value;
+
+            document.getElementById("output").innerHTML = jm + " : " + pass;
+        }
+    </script>
+</body>
+
+</html>

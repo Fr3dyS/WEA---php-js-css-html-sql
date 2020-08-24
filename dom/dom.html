@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> DOM </title>
+    <style>
+        div {
+            width: 25px;
+            height: 25px;
+            float: left;
+            border-radius: 12px;
+            background-image: linear-gradient(gold, silver);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="ixko"></div>
+
+
+    <script>
+        var content = document.getElementById("ixko");
+        for (var i = 0; i < 100; i++) {
+            content.innerHTML += '<div class = "wrap" onclick="clicked(this)">'
+        }
+
+        function kliknuto(d) {
+            if (d.count == undefined)
+                d.count = 0;
+            d.count = (d.count + 1) % 10;
+            d.innerHTML = d.count;
+
+            d.style.opacity = ((10 - d.count) / 10.0);
+
+        }
+
+        // var d = document  (->Pokud si to chceme ulehčit)
+
+        var div;
+        div = document.getElementById("asdf"); //Vrati mi to div s danym id
+        var div2 = document.getElementsByClassName("hjkl"); //Vrati mi to div se tridou
+        var div3 = document.getElementsByTagName("div"); //Vrati mi to vsechny divy ktery se na strance objevuji
+        var div4 = document.querySelector(".hjkl"); //Vrati mi to vsechny elementy s touto tridou
+        console.log(div3);
+
+        //		var bennet = {
+        //			delkaVlasu: 0.032,
+        //		};
+
+
+        div.innerHTML = console.log(x); //VZDY -> div.innerHTML
+    </script>
+</body>
+
+</html>;

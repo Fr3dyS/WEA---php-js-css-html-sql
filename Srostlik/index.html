@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Srostlik</title>
+    <link rel="stylesheet" href="css.css" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <nav>
+            <ul class="">
+                <li><a class="" href="#omne" id="about">O mně</a></li>
+                <li><a class="" href="skoleni.html" id="blog">školení</a></li>
+                <li><a class="" href="cenik.html" id="projects">Ceník</a></li>
+                <li><a class="" href="kontakty.html" id="contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div style="margin-left:80px;">
+        <h2>Hoverable Sidenav Buttons</h2>
+        <p>Hover over the buttons in the left side navigation to open them.</p>
+    </div>
+    <div id="navbar">
+        <a class="" href="skoleni.html" id="blog">školení</a>
+        <a class="" href="cenik.html" id="projects">Ceník</a>
+        <a class="" href="kontakty.html" id="contact">Kontakt</a>
+    </div>
+
+    <div style="padding:15px 15px 2500px;font-size:30px">
+        <p><b>This example demonstrates how to slide down a navbar when the user starts to scroll the page.</b></p>
+        <p>Scroll down this frame to see the effect!</p>
+        <p>Scroll to the top to hide the navbar.</p>
+        <p>Lorem ipsum dolor dummy text sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <script>
+        // When the user scrolls down 20px from the top of the document, slide down the navbar
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("navbar").style.top = "0";
+            } else {
+                document.getElementById("navbar").style.top = "-50px";
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

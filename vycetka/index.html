@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Výčetka</h1>
+    <button class="button" onclick="vycetka()">accept</button>
+
+    <div>
+        <p id="demo"></p>
+        1:<input type="number" name="" id="bunka">Kč</br>
+        2:<input type="number" name="" id="bunka1">Kč</br>
+        5:<input type="number" name="" id="bunka2">Kč</br>
+        10:<input type="number" name="" id="bunka3">Kč</br>
+        20:<input type="number" name="" id="bunka4">Kč</br>
+        50:<input type="number" name="" id="bunka5">Kč</br>
+        100:<input type="number" name="" id="bunka6">Kč</br>
+        200:<input type="number" name="" id="bunka7">Kč</br>
+        500:<input type="number" name="" id="bunka8">Kč</br>
+        1000:<input type="number" name="" id="bunka9">Kč</br>
+        2000:<input type="number" name="" id="bunka10">Kč</br>
+        5000:<input type="number" name="" id="bunka11">Kč</br>
+    </div>
+    <div>
+        <input type="text" name="" id="last">
+    </div>
+    <div id="demo"></div>
+    <script>
+        var jednoKoruna;
+        var dvojKoruna;
+        var petiKoruna;
+        var desetiKoruna;
+        var dvacetiKoruna;
+        var padesatiKoruna;
+        var stoKoruna;
+        var dvesteKoruna;
+        var petSetKoruna;
+        var tisicKoruna;
+        var dvaTisiceKoruna;
+        var petTisicKoruna;
+        var test
+        var test2
+        function vycetka() {
+            /*jednoKoruna = document.getElementById("bunka").value
+            console.log(jednoKoruna);
+            var dvoj = document.getElementById("bunka1").value
+            dvojKoruna = dvoj * 2;
+            test2 = jednoKoruna;
+            test = dvojKoruna;
+            console.log(dvojKoruna);
+            console.log(test + test2);*/
+
+            jednoKoruna = document.getElementById("bunka").value
+ 
+            dvojKoruna = document.getElementById("bunka1").value
+            petiKoruna = jednoKoruna + dvojKoruna;
+
+            console.log(petiKoruna);
+            
+            
+            
+            
+            /*var peti = document.getElementById("bunka2").value
+            petiKoruna = peti * 5;
+            console.log(petiKoruna);
+            var deseti = document.getElementById("bunka3").value
+            desetiKoruna = deseti * 10;
+            console.log(desetiKoruna);
+            var dvaceti = document.getElementById("bunka4").value
+            dvacetiKoruna = dvaceti * 20;
+            console.log(dvacetiKoruna);
+            var padesati = document.getElementById("bunka5").value
+            padesatiKoruna = padesati * 50;
+            console.log(padesatiKoruna);
+            var sto = document.getElementById("bunka6").value
+            stoKoruna = sto * 100;
+            console.log(stoKoruna);
+            var dveste = document.getElementById("bunka7").value
+            dvesteKoruna = dveste * 200;
+            console.log(dvesteKoruna);
+            var petSet = document.getElementById("bunka8").value
+            petSetKoruna = petSet * 500;
+            console.log(petSetKoruna);
+            var tisic = document.getElementById("bunka9").value
+            tisicKoruna = tisic * 1000;
+            console.log(tisicKoruna);
+            var dvaTisice = document.getElementById("bunka10").value
+            dvaTisiceKoruna = dvaTisice * 2000;
+            console.log(dvaTisiceKoruna);
+            var petTisic = document.getElementById("bunka11").value
+            petTisicKoruna = petTisic * 5000;
+            console.log(petTisicKoruna);
+
+           
+            if(jednoKoruna > 1 && dvojKoruna > 1 && petiKoruna > 1 && desetiKoruna > 1 && dvacetiKoruna > 1  ){
+                var xx = jednoKoruna + dvojKoruna;
+               /* console.log(xx);
+                var vysledek = jednoKoruna + dvojKoruna + petiKoruna + desetiKoruna + dvacetiKoruna;
+                console.log(vysledek);
+                console.log(jednoKoruna + dvojKoruna + petiKoruna + desetiKoruna + dvacetiKoruna);-
+                document.getElementById("demo").innerHTML = xx;
+            }
+            */
+
+        }
+
+    </script>
+</body>
+
+</html>

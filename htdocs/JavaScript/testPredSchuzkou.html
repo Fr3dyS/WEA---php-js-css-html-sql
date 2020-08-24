@@ -1,0 +1,124 @@
+<head>
+    <title></title>
+</head>
+<style type="text/css">
+    #container {
+        width: 500px;
+        height: 500px;
+        border: 10px solid red;
+    }
+    
+    #pepino {
+        background-color: yellow;
+        width: 100px;
+        height: 100px;
+        position: relative;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <div id="pepino">
+        </div>
+
+    </div>
+    <br/> Posun:
+    <br/>
+    <input type="submit" value="<" onClick="posun(1,1)" />
+    <input type="submit" value=">" onClick="posun(2,1)" />
+    <input type="submit" value="^" onClick="posun(3,1)" />
+    <input type="submit" value="v" onClick="posun(4,1)" /><br/> Velikost:
+    <br/>
+    <input type="submit" value="<" onClick="changevel(1,1)" />
+    <input type="submit" value=">" onClick="changevel(2,1)" />
+    <input type="submit" value="^" onClick="changevel(3,1)" />
+    <input type="submit" value="v" onClick="changevel(4,1)" /><br/> Šířka borderu:<br/>
+    <input type="number" id="cislo" />
+    <input type="submit" value="OK" onClick="border(document.getElementById('cislo').value,1)" /><br/> Barva:
+    <br/> # &nbsp;<input type="text" id="barva" />
+    <input type="submit" value="OK" onClick="barva(document.getElementById('barva').value,1)" /><br/><br/>
+
+    <script type="text/javascript">
+        var neco = document.getElementById("pepino");
+        var pozicex = 5;
+        var pozicey = 0;
+        var sirkajedna = 100;
+        var vyskajedna = 100;
+
+        function posun(cislo) {
+            switch (cislo) {
+                case 1:
+                    if (pozicex > 0) {
+                        pozicex -= 10;
+                        neco.style.left = pozicex + "px";
+                    }
+                    break;
+                case 2:
+                    if (pozicex + sirkajedna < 500) {
+                        pozicex += 10;
+                        neco.style.left = pozicex + "px";
+                    }
+                    break;
+                case 3:
+                    if (pozicey > 0) {
+                        pozicey -= 10;
+                        neco.style.top = pozicey + "px";
+                    }
+                    break;
+
+                case 4:
+                    if (pozicey + vyskajedna < 500) {
+                        pozicey += 10;
+                        neco.style.top = pozicey + "px";
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        function changevel(cislo) {
+            switch (cislo) {
+                case 1:
+                    if (sirka > 30) {
+                        sirka -= 10;
+                        neco.style.width = sirka + "px";
+                    }
+                    break;
+                case 2:
+                    if (sirka < 450 && posx + sirka + 10 <= 500) {
+                        sirka += 10;
+                        neco.style.width = sirka + "px";
+                    }
+                    break;
+                case 3:
+                    if (vyska > 30) {
+                        vyska -= 10;
+                        neco.style.height = vyska + "px";
+                    }
+                    break;
+
+                case 4:
+                    if (vyska < 450 && posy + vyska + 10 <= 500) {
+                        vyska += 10;
+                        neco.style.height = vyska + "px";
+                    }
+                    break;
+            }
+
+        }
+
+        function border(cislo) {
+            if (cislo >= 0) {
+                neco.style.border = cislo + "px solid red";
+            }
+        }
+
+        function barva(cislo, typ) {
+            neco.style.backgroundColor = "#" + cislo;
+        }
+    </script>
+</body>
+
+</html>

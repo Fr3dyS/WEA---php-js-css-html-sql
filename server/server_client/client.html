@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    Text: <input type="text" name="text">
+    <button>Stáhni data!</button>
+    <script>
+        /*
+        [
+            myš,
+            my,
+            m
+        ]
+        */
+        $("button").click(function(){
+            var text = $("input[name=text]").val();
+            $.get("server.php?text="+text, function (data){
+                var data2 = JSON.parse(data);
+                console.log(data2);
+            });
+        });
+    </script>
+</body>
+</html>

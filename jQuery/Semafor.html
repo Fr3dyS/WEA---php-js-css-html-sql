@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        #semafor{
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #222222;
+            width: 100px;
+        }
+        #cervena{
+            background-color: red;
+
+        }
+        #orazova{
+            background-color: orange;
+            opacity: 0.2;
+        }
+        #zelena{
+            background-color: green;
+            opacity: 0.2;
+        }   
+        .circ{
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 12px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="semafor">
+        <div id="cervena" class="circ"></div>
+        <div id="orazova" class="circ"></div>
+        <div id="zelena" class="circ"></div>
+    </div>
+   <button>Přepni!</button>
+    <script>
+        var jeZelena = false;
+
+        $("button").click(function (){
+            prepniSemafor();
+        });  
+
+        function prepniSemafor(){
+            jeZelena = !jeZelena;
+            $("button").attr("disabled", "true");
+            if(jeZelena){
+                $("#orazova").animate({"opacity" : 1 }, 400);
+                $("#cervena").delay(800).animate({"opacity" : 0.2 }, 400);
+                $("#orazova").delay(400).animate({"opacity" : 0.2 }, 400);
+                $("#zelena").delay(800).animate({"opacity" :1 }, 400 , 
+                function(){ $("button").removeAttr("disabled");});
+            }else{
+                $("#zelena").animate({"opacity" : 0.2 } , 400);
+                $("#orazova").animate({"opacity" : 1 }, 400);
+                $("#orazova").delay(400).animate({"opacity" : 0.2 }, 400);
+                $("#cervena").delay(800).animate({"opacity" : 1 }, 400 ,
+                function(){ $("button").removeAttr("disabled"); });
+
+            }
+        }
+        var  p = document.getElementById("qwe");
+        
+        //zakladni selektory
+        $(p).hide();
+        $("*")
+        $("#id") 
+        $(".class")
+        $("element")
+        $("h1, h2, h3, h4, span, .barva")
+        
+        //pseudo selektory
+        $("div:first")
+        $("div:last")
+        $("tr: even")
+        $("tr: odd")
+        //část 2
+        $(":first-child")
+        $(":last-child")
+        $(":nth-child(5)")
+
+        //relation selektory
+        $("div > p")
+        $("div p")
+        $("div + p")
+        $("div ~p")
+        // pseudo selektory poziční
+        $("div:eq(1)")
+        $("div:lt(2)")
+        $("div:gt(2)")
+        $(":not(:gt(2))")
+
+        //poslední část pseudo selektorů, sorry
+        $(":header")
+        $(":animated")
+        $(":focus")
+        $(":contains('ahoj')")
+        $(":empty")
+        $(":hidden")
+        $(":visible")
+        $(":input"), $(":selected"), $(":checked")
+        $("input[type=text]")
+
+    </script>
+</body>
+</html>

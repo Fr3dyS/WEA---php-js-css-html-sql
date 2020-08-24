@@ -1,0 +1,5 @@
+1; AWP Dragon Lore; Legendary skin for AWP; DragonLore.png
+2; M4A4 Howl; Mythic skin for M4A4; Howl.png
+3; Revolver Fade; Epic skin for Revolver; RevolverFade.png
+4; Karambit Doppler; Legendary skin for Karambit; KarambitDoppler.png
+5; XM1014 Seasons; Epic skin for (Shotgun) XM1014; XM1014shotgun.png

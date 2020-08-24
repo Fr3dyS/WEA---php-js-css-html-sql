@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Hra</title>
+    <style media="screen">
+        #menu {
+            width: fit-content;
+            height: fit-content;
+            margin: 0px auto;
+        }
+        
+        .block {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            border: 1px solid black;
+            display: none;
+        }
+        
+        #gameover {
+            display: none;
+            text-align: center;
+            color: red;
+            font-weight: bold;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id='gameover'>GAME OVER!</h1>
+    <h1 id='winner' style='display:none;'>VYHRAL JSI!</h1>
+    <div id="menu" style='display:block;'>
+        <div id='cas'></div>
+        <div class="block" id='1'></div>
+        <div class="block" id='2'></div>
+        <div class="block" id='3'></div>
+        <div class="block" id='4'></div>
+        <div class="block" id='5'></div>
+    </div>
+    <button onclick="random();interval();ifif()">Pridej bunku</button>
+    <button onclick="stop()">zastav</button>
+
+    <script type="text/javascript">
+        var id = 1;
+        var menu = document.getElementById("menu");
+        var pom2 = 0;
+        var id1 = document.getElementById("1");
+        var id2 = document.getElementById("2");
+        var id3 = document.getElementById("3");
+        var id4 = document.getElementById("4");
+        var id5 = document.getElementById("5");
+        var cas = document.getElementById("cas");
+        var pom = 0;
+        id1.innerHTML = 99999;
+        id2.innerHTML = 99999;
+        id3.innerHTML = 99999;
+        id4.innerHTML = 99999;
+        id5.innerHTML = 99999;
+
+        function random() {
+            document.getElementById(id).innerHTML = Math.floor(Math.random() * 5) + 6;
+            document.getElementById(id).style.display = "inline-block";
+            id++;
+            if (id > 6) {
+                id = unset;
+            }
+        }
+
+        function interval() {
+            pom++;
+            switch (pom) {
+                case 1:
+                    var int1 = setInterval(function() {
+                        document.getElementById(1).innerHTML -= +1;
+                    }, 1000);
+                    int1;
+                    break;
+                case 2:
+                    clearInterval(int1);
+                    var int2 = setInterval(function() {
+                        document.getElementById(2).innerHTML -= +1
+                    }, 1000);
+                    break;
+                case 3:
+                    clearInterval(int2);
+                    var int3 = setInterval(function() {
+                        document.getElementById(3).innerHTML -= +1;
+                    }, 1000);
+                    break;
+                case 4:
+                    clearInterval(int3);
+                    var int4 = setInterval(function() {
+                        document.getElementById(4).innerHTML -= +1
+                    }, 1000);
+                    break;
+                case 5:
+                    clearInterval(int4);
+                    var int5 = setInterval(function() {
+                        document.getElementById(5).innerHTML -= +1;
+                    }, 1000);
+                    break;
+            }
+        }
+        setInterval(function() {
+            document.write(pom)
+        }, 1000);
+
+        function stop() {
+            if (id1.innerHTML == 3) {
+                id1.style.display = "none";
+                console.log("TREFA!")
+                id1.innerHTML = 999999;
+                pom2++;
+            }
+            if (id2.innerHTML == 3) {
+                id2.style.display = "none";
+                id2.innerHTML = 999999;
+                console.log("TREFA!")
+                pom2++;
+
+            }
+            if (id3.innerHTML == 3) {
+                id3.style.display = "none";
+                id3.innerHTML = 999999;
+                console.log("TREFA!")
+                pom2++;
+
+            }
+            if (id4.innerHTML == 3) {
+                id4.style.display = "none";
+                id4.innerHTML = 999999;
+                console.log("TREFA!")
+                pom2++;
+
+            }
+            if (id5.innerHTML == 3) {
+                id5.style.display = "none";
+                id5.innerHTML = 999999;
+                console.log("TREFA!")
+                pom2++;
+            }
+            if (pom2 === 5) {
+                document.getElementById("winner").style.display = "block";
+            }
+        }
+        setInterval(function() {
+            ifif();
+        }, 500)
+
+        function ifif() {
+            if (menu.style.display === 'block') {
+                if (id1.innerHTML < 3) {
+                    document.getElementById("menu").style.display = "none";
+                    console.log("PROHRAL JSI!")
+                    document.getElementById("gameover").style.display = "block";
+                }
+                if (id2.innerHTML < 3) {
+                    document.getElementById("menu").style.display = "none";
+                    document.getElementById("gameover").style.display = "block";
+                    console.log("PROHRAL JSI!")
+                }
+                if (id3.innerHTML < 3) {
+                    document.getElementById("menu").style.display = "none";
+                    document.getElementById("gameover").style.display = "block";
+                    console.log("PROHRAL JSI!")
+                }
+                if (id4.innerHTML < 3) {
+                    document.getElementById("menu").style.display = "none";
+                    document.getElementById("gameover").style.display = "block";
+                    console.log("PROHRAL JSI!")
+                }
+                if (id5.innerHTML < 3) {
+                    document.getElementById("menu").style.display = "none";
+                    document.getElementById("gameover").style.display = "block";
+                    console.log("PROHRAL JSI!")
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

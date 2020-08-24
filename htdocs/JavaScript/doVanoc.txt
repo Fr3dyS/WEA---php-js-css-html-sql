@@ -1,0 +1,1 @@
+date, traversing, eventListener, BOM, location, history, cookie
